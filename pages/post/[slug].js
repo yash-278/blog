@@ -20,8 +20,8 @@ const PostDetails = ({ post }) => {
   }
 
   return (
-    <div className="container px-10 mx-auto mb-8 text-white">
-      <div className="lg:grid-cols-12 grid grid-cols-1 gap-12">
+    <div className="container px-4 mx-auto mb-8 text-white">
+      <div className="lg:grid-cols-12 lg:gap-12 grid grid-cols-1">
         <div className="lg:col-span-8 col-span-1">
           <PostDetail post={post} />
           <Author author={post.author} />
@@ -29,7 +29,7 @@ const PostDetails = ({ post }) => {
           <Comments slug={post.slug} />
         </div>
         <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky top-8 relative">
+          <div className="lg:sticky lg:top-8 relative">
             <PostWidget
               slug={post.slug}
               categories={post.categories.map((category) => category.slug)}

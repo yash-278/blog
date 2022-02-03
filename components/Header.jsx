@@ -15,11 +15,11 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="container px-10 py-8 mx-auto mb-8 text-white">
+    <div className="lg:mb-8 container px-10 py-8 mx-auto text-white">
       <div className="py8 inline-block w-full">
         <div className="md:float-left block">
           <Link href="/" passHref>
-            <span className="text-4xl font-bold text-indigo-500 cursor-pointer">Yash Kadam</span>
+            <span className="text-4xl font-bold text-teal-600 cursor-pointer">Yash Kadam</span>
           </Link>
         </div>
 

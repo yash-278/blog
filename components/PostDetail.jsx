@@ -56,7 +56,7 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="lg:p-8 pb-12 mb-8 bg-gray-800 rounded-lg shadow-lg">
+      <div className="lg:p-8 pb-12 mb-8 text-gray-300 bg-gray-800 rounded-lg shadow-lg">
         <div className="relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}
@@ -96,7 +96,7 @@ const PostDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format("MMM DD, YYYY")}</span>
             </div>
           </div>
-          <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+          <h1 className="mb-8 text-3xl font-semibold text-white">{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) =>
               getContentFragment(itemindex, item.text, item)
