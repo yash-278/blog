@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../components";
 import { getPosts } from "../services";
+import 'highlight.js/styles/default.css';
 
 export default function Home({ posts }) {
   return (

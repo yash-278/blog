@@ -1,8 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import moment from "moment";
-import React from "react";
+import React, { useEffect } from "react";
+import hljs from "highlight.js";
+import "highlight.js/styles/github-dark.css";
+import javascript from "highlight.js/lib/languages/javascript";
+hljs.registerLanguage("javascript", javascript);
 
 const PostDetail = ({ post }) => {
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -18,12 +26,38 @@ const PostDetail = ({ post }) => {
       if (obj.underline) {
         modifiedText = <u key={index}>{text}</u>;
       }
+
+      if (obj.code) {
+        return (
+          <code key={index} className="hljs">
+            {text}
+          </code>
+        );
+      }
     }
 
     switch (type) {
+      case "code-block":
+        return (
+          <pre className="py-2 text-sm md:text-xl" key={index}>
+            <code>
+              {modifiedText.map((item, i) => (
+                <React.Fragment key={i}>{item}</React.Fragment>
+              ))}
+            </code>
+          </pre>
+        );
+      case "heading-two":
+        return (
+          <h2 key={index} className="lg:text-3xl text-2xl text-gray-100 mb-4 font-semibold">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h2>
+        );
       case "heading-three":
         return (
-          <h3 key={index} className="mb-4 text-xl font-semibold">
+          <h3 key={index} className="mb-4 text-xl lg:text-2xl font-semibold">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -31,7 +65,7 @@ const PostDetail = ({ post }) => {
         );
       case "paragraph":
         return (
-          <p key={index} className="mb-8">
+          <p key={index} className="mb-8 text-lg font-medium">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -39,7 +73,7 @@ const PostDetail = ({ post }) => {
         );
       case "heading-four":
         return (
-          <h4 key={index} className="text-md mb-4 font-semibold">
+          <h4 key={index} className="text-lg lg:text-xl mb-4 font-semibold">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -97,6 +131,7 @@ const PostDetail = ({ post }) => {
             </div>
           </div>
           <h1 className="mb-8 text-3xl font-semibold text-white">{post.title}</h1>
+          {console.log(post.content.raw.children)}
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) =>
               getContentFragment(itemindex, item.text, item)
