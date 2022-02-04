@@ -5,7 +5,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const query = gql`
     query GetPosts {
-      postsConnection {
+      postsConnection() {
         edges {
           node {
             author {
@@ -29,6 +29,7 @@ export const getPosts = async () => {
               id
               slug
             }
+            featuredPost
           }
         }
       }
@@ -40,44 +41,49 @@ export const getPosts = async () => {
   return results.postsConnection.edges;
 };
 
-export const getPostDetails = async (slug) => {
+export const getRecentPosts = async () => {
   const query = gql`
-    query GetPostDetails($slug: String!) {
-      post(where: { slug: $slug }) {
-        title
-        excerpt
-        featuredImage {
-          url
-        }
-        author {
-          name
-          bio
-          photo {
-            url
+    query GetPosts {
+      postsConnection(last: 10) {
+        edges {
+          node {
+            author {
+              bio
+              id
+              name
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            id
+            categories {
+              name
+              id
+              slug
+            }
+            featuredPost
           }
-        }
-        createdAt
-        slug
-        content {
-          raw
-        }
-        categories {
-          name
-          slug
         }
       }
     }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
+  const results = await request(graphqlAPI, query);
 
-  return result.post;
+  return results.postsConnection.edges;
 };
 
-export const getRecentPosts = async () => {
+export const getFeaturedPosts = async () => {
   const query = gql`
-    query GetRecentPostDetails {
-      posts(orderBy: createdAt_ASC, last: 3) {
+    query GetFeaturedPostDetails {
+      posts(where: { featuredPost: true }, orderBy: createdAt_DESC, last: 3) {
         id
         title
         featuredImage {
@@ -113,6 +119,40 @@ export const getSimilarPosts = async (categories, slug) => {
   const results = await request(graphqlAPI, query, { categories, slug });
 
   return results.posts;
+};
+
+export const getPostDetails = async (slug) => {
+  const query = gql`
+    query GetPostDetails($slug: String!) {
+      post(where: { slug: $slug }) {
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        author {
+          name
+          bio
+          photo {
+            url
+          }
+        }
+        createdAt
+        slug
+        content {
+          raw
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.post;
 };
 
 export const getCategories = async () => {

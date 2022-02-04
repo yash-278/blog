@@ -54,7 +54,7 @@ const CommentsForm = ({ slug }) => {
           // value={formData.comment}
           // onChange={onInputChange}
           ref={commentEl}
-          className="focus:ring-2 focus:ring-teal-700 w-full h-40 p-4 text-gray-300 transition duration-300 bg-gray-700 rounded-lg outline-none"
+          className="focus:ring-2 focus:ring-indigo-700 w-full h-40 p-4 text-gray-300 transition duration-300 bg-gray-700 rounded-lg outline-none"
           name="comment"
           placeholder="Comment"
         />
@@ -65,7 +65,7 @@ const CommentsForm = ({ slug }) => {
           // value={formData.name}
           // onChange={onInputChange}
           ref={nameEl}
-          className="focus:ring-2 focus:ring-teal-700 w-full px-4 py-2 text-gray-300 transition duration-300 bg-gray-700 rounded-lg outline-none"
+          className="focus:ring-2 focus:ring-indigo-700 w-full px-4 py-2 text-gray-300 transition duration-300 bg-gray-700 rounded-lg outline-none"
           placeholder="Name"
           name="name"
         />
@@ -74,7 +74,7 @@ const CommentsForm = ({ slug }) => {
           // value={formData.email}
           // onChange={onInputChange}
           ref={emailEl}
-          className="focus:ring-2 focus:ring-teal-700 w-full px-4 py-2 text-gray-300 transition duration-300 bg-gray-700 rounded-lg outline-none"
+          className="focus:ring-2 focus:ring-indigo-700 w-full px-4 py-2 text-gray-300 transition duration-300 bg-gray-700 rounded-lg outline-none"
           placeholder="Email"
           name="email"
         />
@@ -100,7 +100,7 @@ const CommentsForm = ({ slug }) => {
         <button
           type="button"
           onClick={handlePostSubmission}
-          className="ease hover:bg-indigo-500 inline-block px-8 py-3 text-lg font-medium text-white transition duration-500 bg-teal-600 rounded-md cursor-pointer"
+          className="ease hover:bg-teal-500 inline-block px-8 py-3 text-lg font-medium text-white transition duration-500 bg-indigo-600 rounded-md cursor-pointer"
         >
           Post Comment
         </button>

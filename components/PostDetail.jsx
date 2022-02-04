@@ -39,7 +39,7 @@ const PostDetail = ({ post }) => {
     switch (type) {
       case "code-block":
         return (
-          <pre className="py-2 text-sm md:text-xl" key={index}>
+          <pre className="md:text-xl py-2 text-sm" key={index}>
             <code>
               {modifiedText.map((item, i) => (
                 <React.Fragment key={i}>{item}</React.Fragment>
@@ -49,7 +49,7 @@ const PostDetail = ({ post }) => {
         );
       case "heading-two":
         return (
-          <h2 key={index} className="lg:text-3xl text-2xl text-gray-100 mb-4 font-semibold">
+          <h2 key={index} className="lg:text-3xl mb-4 text-2xl font-semibold text-gray-100">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -57,7 +57,7 @@ const PostDetail = ({ post }) => {
         );
       case "heading-three":
         return (
-          <h3 key={index} className="mb-4 text-xl lg:text-2xl font-semibold">
+          <h3 key={index} className="lg:text-2xl mb-4 text-xl font-semibold">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -73,7 +73,7 @@ const PostDetail = ({ post }) => {
         );
       case "heading-four":
         return (
-          <h4 key={index} className="text-lg lg:text-xl mb-4 font-semibold">
+          <h4 key={index} className="lg:text-xl mb-4 text-lg font-semibold">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -115,7 +115,7 @@ const PostDetail = ({ post }) => {
             <div className="font-medium text-gray-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="inline w-6 h-6 mr-2 text-teal-500"
+                className="inline w-6 h-6 mr-2 text-indigo-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -131,7 +131,6 @@ const PostDetail = ({ post }) => {
             </div>
           </div>
           <h1 className="mb-8 text-3xl font-semibold text-white">{post.title}</h1>
-          {console.log(post.content.raw.children)}
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) =>
               getContentFragment(itemindex, item.text, item)

@@ -1,17 +1,20 @@
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../components";
-import { getPosts } from "../services";
-import 'highlight.js/styles/default.css';
+import { getRecentPosts } from "../services";
+import "highlight.js/styles/default.css";
 
 export default function Home({ posts }) {
   return (
-    <div className="md:px-10 container px-4 mx-auto mb-8 text-white">
+    <div className="md:px-10 container px-4 mx-auto mb-8">
       <Head>
         <title>Yash Kadam</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="lg:grid-cols-12 lg:gap-12 grid grid-cols-1">
         <div className="lg:col-span-8 col-span-1">
+          <h1 className=" pb-4 text-xl font-semibold tracking-wider text-white">
+            Recently Published Posts
+          </h1>
           {posts.map((post) => (
             <PostCard key={post.node.id} post={post.node} />
           ))}
@@ -28,7 +31,6 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
-
+  const posts = (await getRecentPosts()) || [];
   return { props: { posts }, revalidate: 10 };
 }
