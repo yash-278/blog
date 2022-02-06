@@ -40,9 +40,7 @@ const PostDetail = ({ post }) => {
       case "code-block":
         return (
           <div className="relative ">
-            <label htmlFor="" className="absolute right-0 m-2 rounded bg-teal-700 p-2 uppercase">
-              JSX
-            </label>
+            <label className="absolute right-0 m-2 rounded bg-teal-700 p-2 uppercase">JSX</label>
             <pre className="rounded border-2 border-gray-500 py-2 text-sm md:text-xl" key={index}>
               <code className={`language-jsx`}>
                 {modifiedText.map((item, i) => (
@@ -61,7 +59,7 @@ const PostDetail = ({ post }) => {
 
         return (
           <div className="relative">
-            <label htmlFor="" className="absolute right-0 m-2 rounded bg-teal-700 p-2 uppercase">
+            <label className="absolute right-0 m-2 rounded bg-teal-700 p-2 uppercase">
               {obj.className.slice(9)}
             </label>
             <pre className="rounded border-2 border-gray-500  py-2 text-sm md:text-xl" key={index}>
