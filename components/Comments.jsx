@@ -16,17 +16,17 @@ const Comments = ({ slug }) => {
   return (
     <>
       {comments.length > 0 && (
-        <div className="lg:p-8 lg:pb-12 px-4 py-8 mb-8 bg-gray-800 rounded-lg shadow-lg">
-          <h3 className="pb-4 mb-8 text-xl font-semibold border-b border-gray-400">
+        <div className="mb-8 rounded-lg bg-gray-800 px-4 py-8 shadow-lg lg:p-8 lg:pb-12">
+          <h3 className="mb-8 border-b border-gray-400 pb-4 text-xl font-semibold">
             {comments.length} Comments
           </h3>
           {comments.map((comment, index) => (
-            <div key={index} className="pb-4 mb-4 border-b border-gray-400">
+            <div key={index} className="mb-4 border-b border-gray-400 pb-4">
               <p className="mb-4">
                 <span className="font-semibold">{comment.name}</span> on{" "}
                 {moment(comment.createdAt).format("MMM DD, YYYY")}
               </p>
-              <p className="w-full text-gray-300 whitespace-pre-line">{parse(comment.comment)}</p>
+              <p className="w-full whitespace-pre-line text-gray-300">{parse(comment.comment)}</p>
             </div>
           ))}
         </div>

@@ -20,16 +20,16 @@ const PostDetails = ({ post }) => {
   }
 
   return (
-    <div className="container px-4 mx-auto mb-8 text-white">
-      <div className="lg:grid-cols-12 lg:gap-12 grid grid-cols-1">
-        <div className="lg:col-span-8 col-span-1">
+    <div className="container mx-auto mb-8 px-4 text-white">
+      <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12">
+        <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
           <Author author={post.author} />
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>
-        <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky lg:top-8 relative">
+        <div className="col-span-1 lg:col-span-4">
+          <div className="relative lg:sticky lg:top-8">
             <PostWidget
               slug={post.slug}
               categories={post.categories.map((category) => category.slug)}
@@ -53,6 +53,6 @@ export async function getStaticPaths() {
   const posts = await getPosts();
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false,
+    fallback: true,
   };
 }

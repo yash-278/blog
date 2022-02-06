@@ -15,18 +15,18 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="lg:mb-8 container px-10 py-8 mx-auto text-white">
+    <div className="container mx-auto px-10 py-8 text-white lg:mb-8">
       <div className="py8 inline-block w-full">
-        <div className="md:float-left block">
+        <div className="block md:float-left">
           <Link href="/" passHref>
-            <span className="text-4xl font-bold text-indigo-500 cursor-pointer">Yash Kadam</span>
+            <span className="cursor-pointer text-4xl font-bold text-indigo-500">Yash Kadam</span>
           </Link>
         </div>
 
-        <div className="md:float-left md:contents hidden">
+        <div className="hidden md:float-left md:contents">
           {categories.map((category) => (
             <Link key={category.slug} href={`/category/${category.slug}`} passHref>
-              <span className="md:float-right mt-2 ml-8 font-semibold align-middle cursor-pointer">
+              <span className="mt-2 ml-8 cursor-pointer align-middle font-semibold md:float-right">
                 {category.name}
               </span>
             </Link>

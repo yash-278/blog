@@ -10,14 +10,14 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className=" lg:p-8 p-4 mb-8 bg-gray-800 {border-2 border-gray-700} rounded-md shadow-lg">
-      <h3 className="pb-4 mb-8 text-xl font-semibold tracking-wider text-white border-b-2 border-gray-700">
+    <div className=" {border-2 border-gray-700} mb-8 rounded-md bg-gray-800 p-4 shadow-lg lg:p-8">
+      <h3 className="mb-8 border-b-2 border-gray-700 pb-4 text-xl font-semibold tracking-wider text-white">
         Categories
       </h3>
 
       {categories.map((category) => (
         <Link key={category.slug} href={`/category/${category.slug}`} passHref>
-          <span className="px-2 py-1 mb-1 mr-3 text-white bg-indigo-700 rounded-md cursor-pointer">
+          <span className="mb-1 mr-3 cursor-pointer rounded-md bg-indigo-700 px-2 py-1 text-white">
             {category.name}
           </span>
         </Link>

@@ -16,27 +16,25 @@ const PostWidget = ({ categories, slug }) => {
   }, [categories, slug]);
 
   return (
-    <div className=" lg:p-8 p-4 mb-8 bg-gray-800 {border-2 border-gray-700} rounded-md shadow-lg">
-      <h3 className="pb-4 mb-8 text-xl font-semibold tracking-wider text-white border-b-2 border-gray-700">
+    <div className=" {border-2 border-gray-700} mb-8 rounded-md bg-gray-800 p-4 shadow-lg lg:p-8">
+      <h3 className="mb-8 border-b-2 border-gray-700 pb-4 text-xl font-semibold tracking-wider text-white">
         {slug ? "Related Posts" : "Featured Posts"}
       </h3>
       {relatedPosts.map((post) => (
         <Link href={`/post/${post.slug}`} key={post.title} passHref>
-          <div key={post.title} className="group flex items-center w-full mb-4 cursor-pointer">
-            <div className="flex-none w-20">
+          <div key={post.title} className="group mb-4 flex w-full cursor-pointer items-center">
+            <div className="w-20 flex-none">
               <img
                 src={post.featuredImage.url}
                 alt={post.title}
-                className="align-middle rounded-md"
-                // height="60px"
-                // width="60px"
+                className="rounded-md align-middle"
               />
             </div>
-            <div className="flex-row ml-4 text-gray-200">
+            <div className="ml-4 flex-row text-gray-200">
               <p className=" text-xs text-gray-400">
                 {moment(post.createdAt).format("MMM DD, YYYY")}
               </p>
-              <div className="group-hover:text-indigo-300 transition duration-300">
+              <div className="transition duration-300 group-hover:text-indigo-300">
                 {post.title}
               </div>
             </div>

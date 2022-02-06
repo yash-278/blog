@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Layout } from "../components";
 import "../styles/globals.scss";
-import "highlight.js/styles/github-dark.css";
+import "prismjs/themes/prism-okaidia.css";
 
 function MyApp({ Component, pageProps }) {
   return (
