@@ -121,6 +121,45 @@ export const getSimilarPosts = async (categories, slug) => {
   return results.posts;
 };
 
+export const getCategoryPosts = async (slug) => {
+  const query = gql`
+    query getCategoryPosts($slug: String!) {
+      postsConnection(where: { categories_some: { slug: $slug } }) {
+        edges {
+          node {
+            author {
+              bio
+              id
+              name
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            id
+            categories {
+              name
+              id
+              slug
+            }
+            featuredPost
+          }
+        }
+      }
+    }
+  `;
+
+  const results = await request(graphqlAPI, query, { slug });
+
+  return results.postsConnection.edges;
+};
+
 export const getPostDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug: String!) {
