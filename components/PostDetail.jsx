@@ -9,7 +9,7 @@ hljs.registerLanguage("javascript", javascript);
 const PostDetail = ({ post }) => {
   useEffect(() => {
     hljs.highlightAll();
-  }, []);
+  });
 
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
