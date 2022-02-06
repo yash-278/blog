@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Layout } from "../components";
-import "next-pagination/dist/index.css";
 import "../styles/globals.scss";
+import "highlight.js/styles/github-dark.css";
 
 function MyApp({ Component, pageProps }) {
   return (

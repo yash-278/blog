@@ -29,7 +29,7 @@ const PostDetail = ({ post }) => {
 
       if (obj.code) {
         return (
-          <code key={index} className="hljs">
+          <code key={index} className="hljs bg-gray-900 rounded">
             {text}
           </code>
         );
@@ -40,7 +40,7 @@ const PostDetail = ({ post }) => {
       case "code-block":
         return (
           <pre className="md:text-xl py-2 text-sm" key={index}>
-            <code>
+            <code className="hljs bg-gray-900 rounded">
               {modifiedText.map((item, i) => (
                 <React.Fragment key={i}>{item}</React.Fragment>
               ))}
