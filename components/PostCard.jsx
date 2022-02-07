@@ -57,7 +57,7 @@ const PostCard = ({ post }) => {
             <div className="flex cursor-pointer items-center justify-end md:justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="mr-2 hidden h-6 w-6 text-indigo-500 transition duration-1000 group-hover:inline"
+                className="mr-2 hidden h-5 w-5 text-indigo-500 transition duration-1000 group-hover:inline"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -69,7 +69,7 @@ const PostCard = ({ post }) => {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-              <div className="peer h-min rounded-md p-2 align-middle text-base font-semibold tracking-wide transition duration-300 hover:scale-105 group-hover:text-indigo-500">
+              <div className="peer h-min rounded-md p-2 align-middle text-sm font-semibold tracking-wide transition duration-300 hover:scale-105 group-hover:text-indigo-500">
                 Continue Reading
               </div>
             </div>

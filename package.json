@@ -10,6 +10,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
+    "framer-motion": "^6.2.4",
     "graphql": "^16.2.0",
     "graphql-request": "^3.7.0",
     "highlight.js": "^11.4.0",
