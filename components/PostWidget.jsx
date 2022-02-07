@@ -21,7 +21,11 @@ const PostWidget = ({ categories, slug }) => {
         {slug ? "Related Posts" : "Featured Posts"}
       </h3>
       {relatedPosts.map((post) => (
-        <Link href={`/post/${post.slug}`} key={post.title} passHref>
+        <Link
+          href={{ pathname: "/post/[slug]", query: { slug: post.slug } }}
+          key={post.title}
+          passHref
+        >
           <div key={post.title} className="group mb-4 flex w-full cursor-pointer items-center">
             <div className="w-20 flex-none">
               <img

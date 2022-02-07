@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useRouter } from "next/router";
 import { getPosts, getPostDetails } from "../../services";
 import {
@@ -24,13 +23,11 @@ const PostDetails = ({ post }) => {
   const easing = [0.6, -0.05, 0.01, 0.99];
   const fadeInUp = {
     initial: {
-      // y: 100,
-      scale: 0,
+      y: 100,
       opacity: 0,
     },
     animate: {
-      // y: 0,
-      scale: 1,
+      y: 0,
       opacity: 1,
       transition: {
         duration: 0.6,
@@ -40,7 +37,13 @@ const PostDetails = ({ post }) => {
   };
 
   return (
-    <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate" variants={fadeInUp}>
+    <motion.div
+      key={router.asPath}
+      exit={{ opacity: 0, scale: 2 }}
+      initial="initial"
+      animate="animate"
+      variants={fadeInUp}
+    >
       <div className="container mx-auto mb-8 px-4 text-white">
         <Head>
           <title>{post.title}</title>

@@ -9,6 +9,7 @@ const PostCard = ({ post }) => {
     <div className="group {border-2 border-gray-700} mb-8 gap-4 rounded-lg bg-gray-800 p-3 text-white shadow-lg xl:flex">
       <div className="relative mb-4 overflow-hidden pb-32 shadow-md xl:mb-0 xl:w-2/6">
         <motion.img
+          key={post.slug}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
