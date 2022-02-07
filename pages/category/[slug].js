@@ -5,6 +5,9 @@ import { getPosts, getCategoryPosts } from "../../services";
 import { Loader, CategoryPostCard } from "../../components";
 import Head from "next/head";
 
+import { motion } from "framer-motion";
+import { container, fadeInUp, listItem } from "../../services/animation";
+
 const PostDetails = ({ posts, params }) => {
   const router = useRouter();
 
@@ -21,13 +24,18 @@ const PostDetails = ({ posts, params }) => {
         <h2 className="text-3xl font-bold capitalize tracking-wider md:text-5xl">{params.slug}</h2>
         <p className="font-semibold text-gray-400"> {posts.length} Articles</p>
       </div>
-      {/* <hr className="mb-4 border-2 border-indigo-800" /> */}
 
-      <div className="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 md:place-items-stretch lg:grid-cols-3 xl:grid-cols-4">
+      <motion.div
+        variants={fadeInUp}
+        initial="initial"
+        animate="animate"
+        key={router.asPath}
+        className="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 md:place-items-stretch lg:grid-cols-3 xl:grid-cols-4"
+      >
         {posts.map((post) => (
           <CategoryPostCard key={post.node.id} post={post.node} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

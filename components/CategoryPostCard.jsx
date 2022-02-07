@@ -4,7 +4,7 @@ import React from "react";
 
 const CategoryPostCard = ({ post }) => {
   return (
-    <div className="group  mb-8 max-w-sm gap-4 rounded-lg bg-gray-800 p-3 text-white shadow-lg ">
+    <div className="group  mb-8 max-w-md gap-4 rounded-lg bg-gray-800 p-3 text-white shadow-lg ">
       <div className="relative mb-4 overflow-hidden pb-32 shadow-md ">
         <img
           alt={post.title}

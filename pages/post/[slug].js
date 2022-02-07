@@ -12,6 +12,7 @@ import {
 } from "../../components";
 import Head from "next/head";
 import { motion } from "framer-motion";
+import { fadeInUp } from "../../services/animation";
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
@@ -20,41 +21,25 @@ const PostDetails = ({ post }) => {
     return <Loader />;
   }
 
-  const easing = [0.6, -0.05, 0.01, 0.99];
-  const fadeInUp = {
-    initial: {
-      y: 100,
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: easing,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      key={router.asPath}
-      exit={{ opacity: 0, scale: 2 }}
-      initial="initial"
-      animate="animate"
-      variants={fadeInUp}
-    >
+    <motion.div>
       <div className="container mx-auto mb-8 px-4 text-white">
         <Head>
           <title>{post.title}</title>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12">
-          <div className="col-span-1 lg:col-span-8">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+            key={post.slug}
+            className="col-span-1 lg:col-span-8"
+          >
             <PostDetail post={post} />
             <Author author={post.author} />
             <CommentsForm slug={post.slug} />
             <Comments slug={post.slug} />
-          </div>
+          </motion.div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky lg:top-8">
               <PostWidget
