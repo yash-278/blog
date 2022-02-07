@@ -21,12 +21,26 @@ const PostDetails = ({ post }) => {
     return <Loader />;
   }
 
+  const easing = [0.6, -0.05, 0.01, 0.99];
+  const fadeInUp = {
+    initial: {
+      // y: 100,
+      scale: 0,
+      opacity: 0,
+    },
+    animate: {
+      // y: 0,
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: easing,
+      },
+    },
+  };
+
   return (
-    <motion.div
-      exit={{ opacity: 0, y: 300 }}
-      initial={{ opacity: 0, y: 300 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
+    <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate" variants={fadeInUp}>
       <div className="container mx-auto mb-8 px-4 text-white">
         <Head>
           <title>{post.title}</title>
