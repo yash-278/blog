@@ -16,8 +16,8 @@ const PostWidget = ({ categories, slug }) => {
   }, [categories, slug]);
 
   return (
-    <div className=" {border-2 border-gray-700} mb-8 rounded-md bg-gray-800 p-4 shadow-lg lg:p-8">
-      <h3 className="mb-8 border-b-2 border-gray-700 pb-4 text-xl font-semibold tracking-wider text-white">
+    <div className="dark:bg-dark-card bg-light-card mb-8 rounded-md p-4 shadow-md lg:p-8">
+      <h3 className="dark:text-dark-headline text-light-headline mb-8 border-b-2 border-gray-700 pb-4 text-xl font-semibold tracking-wider">
         {slug ? "Related Posts" : "Featured Posts"}
       </h3>
       {relatedPosts.map((post) => (
@@ -34,11 +34,11 @@ const PostWidget = ({ categories, slug }) => {
                 className="rounded-md align-middle"
               />
             </div>
-            <div className="ml-4 flex-row text-gray-200">
-              <p className=" text-xs text-gray-400">
+            <div className="ml-4 flex-row ">
+              <p className=" dark:text-dark-subheadline text-light-subheadline text-xs">
                 {moment(post.createdAt).format("MMM DD, YYYY")}
               </p>
-              <div className="transition duration-300 group-hover:text-indigo-300">
+              <div className="dark:text-dark-headline text-light-headline dark:group-hover:text-dark-button group-hover:text-light-button transition duration-300">
                 {post.title}
               </div>
             </div>

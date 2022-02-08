@@ -16,13 +16,16 @@ const PostDetails = ({ posts, params }) => {
   }
 
   return (
-    <div className="container mx-auto mb-8 px-4 text-white md:px-10">
+    <div className="dark:text-dark-headline text-light-headline container relative z-20 mx-auto mb-8 px-4 md:px-10">
       <Head>
         <title>{params.slug.charAt(0).toUpperCase() + params.slug.slice(1)} Articles</title>
       </Head>
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-3xl font-bold capitalize tracking-wider md:text-5xl">{params.slug}</h2>
-        <p className="font-semibold text-gray-400"> {posts.length} Articles</p>
+        <p className="dark:text-dark-subheadline text-light-subheadline font-semibold">
+          {" "}
+          {posts.length} Articles
+        </p>
       </div>
 
       <motion.div

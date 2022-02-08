@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCategories } from "../services";
 import Link from "next/link";
-import { Dropdown } from ".";
+import { Dropdown, Toggle } from ".";
 const Header = () => {
   const [categories, setCategories] = useState([]);
 
@@ -10,8 +10,8 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8 text-white sm:px-10 lg:mb-8">
-      <div className="custom-shape-divider-top-1644159308 z-0">
+    <div className="dark:text-dark-headline text-light-headline container mx-auto px-4 py-8 sm:px-10 lg:mb-8">
+      <div className="custom-shape-divider-top-1644159308">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,17 +34,17 @@ const Header = () => {
           ></path>
         </svg>
       </div>
-      <div className=" inline-block w-full">
-        <div className="flex justify-between">
+      <div className="relative z-20 inline-block w-full">
+        <div className="justify-between text-center md:flex md:text-left">
           <Link href="/" passHref>
-            <span className="z-10 cursor-pointer text-3xl font-bold text-indigo-500 md:text-4xl">
+            <span className="dark:text-dark-button text-light-button z-10 cursor-pointer text-3xl font-bold md:text-4xl">
               Yash Kadam
             </span>
           </Link>
-          <div className=" space-x-10 ">
+          <div className="mt-3 flex w-full items-center space-x-10  md:mt-0 md:w-max ">
             <a
               target="_blank"
-              className="hidden font-semibold transition duration-200 hover:text-indigo-400 sm:inline-block"
+              className="dark:hover:text-dark-button hover:text-light-button hidden font-semibold transition duration-200 sm:inline-block"
               href="https://github.com/yash-278"
               rel="noopener noreferrer"
             >
@@ -52,13 +52,14 @@ const Header = () => {
             </a>
             <a
               target="_blank"
-              className=" hidden font-semibold transition duration-200 hover:text-indigo-400 sm:inline-block"
+              className=" dark:hover:text-dark-button hover:text-light-button hidden font-semibold transition duration-200 sm:inline-block"
               href="https://www.yashkadam.cf"
               rel="noopener noreferrer"
             >
               Portfolio
             </a>
             <Dropdown categories={categories} />
+            <Toggle />
           </div>
         </div>
       </div>

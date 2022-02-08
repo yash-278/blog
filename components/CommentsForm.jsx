@@ -47,14 +47,14 @@ const CommentsForm = ({ slug }) => {
   };
 
   return (
-    <div className="mb-8 rounded-lg bg-gray-800 px-4 py-8 shadow-lg lg:p-8 lg:pb-12">
-      <h3 className="mb-8 border-b border-gray-500 pb-4 text-xl font-semibold">Leave a Reply</h3>
+    <div className="bg-light-card dark:bg-dark-card mb-8 rounded-lg px-4 py-8 shadow-md lg:p-8 lg:pb-12">
+      <h3 className="dark:text-dark-headline text-light-headline mb-8 border-b border-gray-500 pb-4 text-xl font-semibold">
+        Leave a Reply
+      </h3>
       <div className="mb-4 grid grid-cols-1 gap-4">
         <textarea
-          // value={formData.comment}
-          // onChange={onInputChange}
           ref={commentEl}
-          className="h-40 w-full rounded-lg bg-gray-700 p-4 text-gray-300 outline-none transition duration-300 focus:ring-2 focus:ring-indigo-700"
+          className="bg-light-bg text-light-subheadline focus:ring-light-button h-40 w-full  rounded-lg p-4 outline-none transition duration-300 focus:ring-2 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-indigo-700"
           name="comment"
           placeholder="Comment"
         />
@@ -62,35 +62,26 @@ const CommentsForm = ({ slug }) => {
       <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <input
           type="text"
-          // value={formData.name}
-          // onChange={onInputChange}
           ref={nameEl}
-          className="w-full rounded-lg bg-gray-700 px-4 py-2 text-gray-300 outline-none transition duration-300 focus:ring-2 focus:ring-indigo-700"
+          className="bg-light-bg text-light-subheadline focus:ring-light-button w-full rounded-lg px-4 py-2 outline-none transition duration-300 focus:ring-2 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-indigo-700"
           placeholder="Name"
           name="name"
         />
         <input
           type="email"
-          // value={formData.email}
-          // onChange={onInputChange}
           ref={emailEl}
-          className="w-full rounded-lg bg-gray-700 px-4 py-2 text-gray-300 outline-none transition duration-300 focus:ring-2 focus:ring-indigo-700"
+          className="bg-light-bg text-light-subheadline  focus:ring-light-button w-full rounded-lg px-4 py-2 outline-none transition duration-300 focus:ring-2 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-indigo-700"
           placeholder="Email"
           name="email"
         />
       </div>
       <div className="mb-4 grid grid-cols-1 gap-4">
         <div>
-          <input
-            // checked={formData.storeData}
-            // onChange={onInputChange}
-            ref={storeDataEl}
-            type="checkbox"
-            id="storeData"
-            name="storeData"
-            value="true"
-          />
-          <label className="ml-2 cursor-pointer text-gray-300" htmlFor="storeData">
+          <input ref={storeDataEl} type="checkbox" id="storeData" name="storeData" value="true" />
+          <label
+            className="text-light-subheadline ml-2 cursor-pointer dark:text-gray-300"
+            htmlFor="storeData"
+          >
             Save my name, email in this browser for the next time I comment.
           </label>
         </div>
@@ -100,7 +91,7 @@ const CommentsForm = ({ slug }) => {
         <button
           type="button"
           onClick={handlePostSubmission}
-          className="ease inline-block cursor-pointer rounded-md bg-indigo-600 px-8 py-3 text-lg font-medium text-white transition duration-500 hover:bg-teal-500"
+          className="ease bg-light-button inline-block cursor-pointer rounded-md px-8 py-3 text-lg font-semibold tracking-wider text-white transition duration-500 hover:bg-red-700 dark:bg-indigo-600 dark:text-white dark:hover:bg-teal-500"
         >
           Post Comment
         </button>

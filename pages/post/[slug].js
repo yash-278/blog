@@ -23,7 +23,7 @@ const PostDetails = ({ post }) => {
 
   return (
     <motion.div>
-      <div className="container mx-auto mb-8 px-4 text-white">
+      <div className="dark:text-dark-headline container mx-auto px-4 pb-8">
         <Head>
           <title>{post.title}</title>
         </Head>

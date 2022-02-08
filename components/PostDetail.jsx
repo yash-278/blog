@@ -29,7 +29,7 @@ const PostDetail = ({ post }) => {
 
       if (obj.code) {
         return (
-          <code key={index} className="rounded bg-gray-700 px-1">
+          <code key={index} className="bg-light-bg rounded px-1 dark:bg-gray-700">
             {text}
           </code>
         );
@@ -40,7 +40,9 @@ const PostDetail = ({ post }) => {
       case "code-block":
         return (
           <div className="relative ">
-            <label className="absolute right-0 m-2 rounded bg-teal-700 p-2 uppercase">JSX</label>
+            <label className="bg-light-button absolute right-0 m-2 rounded p-2 uppercase dark:bg-teal-700">
+              JSX
+            </label>
             <pre className="rounded border-2 border-gray-500 py-2 text-sm md:text-xl" key={index}>
               <code className={`language-jsx`}>
                 {modifiedText.map((item, i) => (
@@ -59,7 +61,7 @@ const PostDetail = ({ post }) => {
 
         return (
           <div className="relative">
-            <label className="absolute right-0 m-2 rounded bg-teal-700 p-2 uppercase">
+            <label className="bg-light-button absolute right-0 m-2 rounded p-2 uppercase dark:bg-teal-700">
               {obj.className.slice(9)}
             </label>
             <pre className="rounded border-2 border-gray-500  py-2 text-sm md:text-xl" key={index}>
@@ -114,8 +116,8 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="mb-8 rounded-lg bg-gray-800 pb-12 text-gray-300 shadow-lg lg:p-8">
-        <div className="relative mb-6 overflow-hidden shadow-md">
+      <div className="dark:bg-dark-card  bg-light-card relative mb-8 rounded-lg pb-12  shadow-md lg:p-8">
+        <div className="dark:text-dark-subheadline text-light-subheadline relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}
             alt=""
@@ -132,14 +134,14 @@ const PostDetail = ({ post }) => {
                 className="rounded-full align-middle"
                 src={post.author.photo.url}
               />
-              <p className="ml-2 inline align-middle text-lg font-medium text-gray-300">
+              <p className="dark:text-dark-subheadline text-light-subheadline ml-2 inline align-middle text-lg font-medium">
                 {post.author.name}
               </p>
             </div>
-            <div className="font-medium text-gray-300">
+            <div className="dark:text-dark-subheadline text-light-subheadline font-medium">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="mr-2 inline h-6 w-6 text-indigo-500"
+                className="dark:text-dark-button text-light-button mr-2 inline h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -154,9 +156,9 @@ const PostDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format("MMM DD, YYYY")}</span>
             </div>
           </div>
-          <h1 className="mb-8 text-3xl font-semibold text-white">{post.title}</h1>
-          {/* {console.log(post.content.raw.children)} */}
-
+          <h1 className="dark:text-dark-headline text-light-headline mb-8 text-3xl font-semibold">
+            {post.title}
+          </h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) =>
               getContentFragment(itemindex, item.text, item)
