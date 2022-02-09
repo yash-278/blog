@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getCategories } from "../services";
 import Link from "next/link";
-import { Dropdown, Toggle } from ".";
+import { Dropdown, MobileNav, Toggle } from ".";
 const Header = () => {
   const [categories, setCategories] = useState([]);
+  const [nav, setNav] = useState(false);
 
   useEffect(() => {
     getCategories().then((newCategories) => setCategories(newCategories));
@@ -34,14 +35,16 @@ const Header = () => {
           ></path>
         </svg>
       </div>
-      <div className="relative z-20 inline-block w-full">
-        <div className="justify-between text-center md:flex md:text-left">
-          <Link href="/" passHref>
-            <span className="dark:text-dark-button text-light-button z-10 cursor-pointer text-3xl font-bold md:text-4xl">
-              Yash Kadam
-            </span>
-          </Link>
-          <div className="mt-3 flex w-full items-center space-x-10  md:mt-0 md:w-max ">
+      <div className="relative z-20 flex w-full md:inline-block">
+        <div className="flex w-full justify-between text-left md:text-left">
+          <div>
+            <Link href="/" passHref>
+              <span className="dark:text-dark-button  text-light-button z-10 cursor-pointer text-3xl font-bold md:text-4xl">
+                Yash Kadam
+              </span>
+            </Link>
+          </div>
+          <div className="mt-3 hidden items-center  space-x-10 md:mt-0  md:flex md:w-max ">
             <a
               target="_blank"
               className="dark:hover:text-dark-button hover:text-light-button hidden font-semibold transition duration-200 sm:inline-block"
@@ -61,8 +64,45 @@ const Header = () => {
             <Dropdown categories={categories} />
             <Toggle />
           </div>
+          <button
+            className="inline-block transition duration-300 md:hidden"
+            onClick={() => setNav(!nav)}
+          >
+            {nav ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 transition duration-1000"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 transition duration-1000"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
+      <MobileNav toggle={nav} />
     </div>
   );
 };

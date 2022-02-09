@@ -10,4 +10,5 @@ export { default as CommentsForm } from "./CommentsForm";
 export { default as Comments } from "./Comments";
 export { default as Loader } from "./Loader";
 export { default as Dropdown } from "./Dropdown";
+export { default as MobileNav } from "./MobileNav";
 export { default as Toggle } from "./Toggle";

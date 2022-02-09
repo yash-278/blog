@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Categories, PostCard, PostWidget } from "../components";
+import { Categories, MobileNav, PostCard, PostWidget } from "../components";
 import { getRecentPosts } from "../services";
 import { fadeInUp, stagger } from "../services/animation";
 

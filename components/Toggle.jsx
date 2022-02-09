@@ -1,21 +1,21 @@
 import { useTheme } from "next-themes";
 import React, { useState, useEffect } from "react";
 
-const Toggle = () => {
+const Toggle = ({ mobile }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
   return (
-    <div>
+    <div className={` ${mobile ? "m-4 sm:inline-block" : "hidden sm:inline-block"} `}>
       <button
         className=" flex h-7 w-12 items-center rounded-full bg-gray-200  shadow transition duration-300 focus:outline-none"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
         <div
           id="switch-toggle"
-          className="dark:bg-dark-button relative h-8 w-8 -translate-x-2 transform rounded-full bg-yellow-500 p-1 text-white transition duration-500 dark:translate-x-full"
+          className="relative h-8 w-8 -translate-x-2 transform rounded-full bg-yellow-500 p-1 text-white transition duration-500 dark:translate-x-full dark:bg-blue-800"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const Toggle = () => {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className={theme === "light" ? "hidden" : "visible"}
+            className="hidden dark:block"
           >
             <path
               strokeLinecap="round"
