@@ -2,7 +2,6 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -16,7 +15,7 @@ export default function Dropdown({ categories, mobile }) {
       }`}
     >
       <div>
-        <Menu.Button className="dark:hover:bg-dark-button dark:text-dark-headline hover:bg-light-button text-light-button-text inline-flex w-full justify-center rounded-md bg-red-400 px-4 py-2 text-base font-semibold shadow-sm transition duration-200  dark:bg-gray-700 ">
+        <Menu.Button className="dark:text-dark-headline hover:bg-light-button text-light-button-text inline-flex w-full justify-start rounded-md bg-red-400 px-4 py-2 text-base font-semibold shadow-sm transition duration-200 dark:bg-gray-700  dark:hover:bg-slate-900 ">
           Posts
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>

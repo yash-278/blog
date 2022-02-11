@@ -75,7 +75,7 @@ const PostDetail = ({ post }) => {
         );
       case "heading-two":
         return (
-          <h2 key={index} className="mb-4 text-2xl font-semibold text-gray-100 lg:text-3xl">
+          <h2 key={index} className="mb-4 text-2xl font-semibold lg:text-3xl">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -116,7 +116,7 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="dark:bg-dark-card  bg-light-card relative mb-8 rounded-lg pb-12  shadow-md lg:p-8">
+      <div className="dark:bg-dark-card bg-light-card relative z-20 mb-8 rounded-lg pb-12  shadow-md lg:p-8">
         <div className="dark:text-dark-subheadline text-light-subheadline relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}
